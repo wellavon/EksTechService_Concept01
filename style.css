@@ -1,0 +1,259 @@
+/* =========================================================
+   Concept 01 — «Индустриальный цех»
+   ЭксТехСервис · ремонт спецтехники · Сыктывкар
+   ========================================================= */
+
+:root{
+  --bg:#0e1113;
+  --bg-2:#151a1e;
+  --panel:#1b2227;
+  --line:#2a343b;
+  --text:#e8edf0;
+  --muted:#9aa7b0;
+  --accent:#ff6b1a;
+  --accent-2:#ffb000;
+  --ok:#3ecf8e;
+  --err:#ff7b7b;
+  --radius:4px;
+  --maxw:1200px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none}
+h1,h2,h3,.display{
+  font-family:'Oswald',Impact,sans-serif;
+  font-weight:600;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  line-height:1.05;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 18px;border-radius:var(--radius);
+  font-weight:600;font-size:14px;transition:.18s ease;white-space:nowrap;
+}
+.btn-accent{background:var(--accent);color:#0e1113}
+.btn-accent:hover{background:var(--accent-2)}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-block{width:100%}
+.phone-btn{font-family:'Oswald',sans-serif;letter-spacing:.04em}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(14,17,19,.86);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Oswald',sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;font-size:15px;
+}
+.logo-mark{
+  width:30px;height:30px;background:var(--accent);
+  display:grid;place-items:center;color:#0e1113;font-weight:700;border-radius:3px;
+  clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
+  flex:none;
+}
+.nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.burger{
+  display:none;background:transparent;border:1px solid var(--line);
+  border-radius:4px;width:42px;height:42px;color:var(--text);
+  place-items:center;
+}
+.mobile-menu{display:none;border-top:1px solid var(--line);background:var(--bg-2)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:14px 20px;border-bottom:1px solid var(--line);font-size:15px}
+.mobile-menu a:last-child{border-bottom:none}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:70px 0 80px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(700px 400px at 85% 15%, rgba(255,107,26,.16), transparent 60%),
+    linear-gradient(180deg, rgba(14,17,19,0) 0%, rgba(14,17,19,.9) 100%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 60px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 60px);
+  pointer-events:none;
+}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+  font-weight:600;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent)}
+.hero h1{font-size:clamp(38px,5.2vw,74px);margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-lead{color:var(--muted);font-size:clamp(15px,1.4vw,18px);max-width:540px;margin-bottom:30px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:26px 34px;padding-top:26px;border-top:1px solid var(--line);max-width:600px}
+.fact b{display:block;font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.03em;color:var(--text);text-transform:uppercase}
+.fact span{font-size:13px;color:var(--muted)}
+.hero-visual{position:relative}
+.hero-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line)}
+.badge-float{
+  position:absolute;left:-18px;bottom:26px;background:var(--panel);
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  padding:14px 18px;border-radius:var(--radius);max-width:230px;
+}
+.badge-float b{display:block;font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.04em}
+.badge-float span{font-size:12px;color:var(--muted)}
+
+/* ---------- Sections ---------- */
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.section-head h2{font-size:clamp(28px,3.4vw,44px)}
+.section-head p{color:var(--muted);max-width:420px;font-size:15px}
+.tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
+/* ---------- Services ---------- */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 22px;transition:.2s ease;position:relative;overflow:hidden;
+}
+.service::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--accent);transition:.25s}
+.service:hover{border-color:#3a4750;transform:translateY(-3px)}
+.service:hover::after{width:100%}
+.service .num{font-family:'Oswald',sans-serif;color:var(--accent);font-size:13px;letter-spacing:.1em;margin-bottom:14px}
+.service h3{font-size:19px;margin-bottom:10px;letter-spacing:.02em}
+.service p{font-size:14px;color:var(--muted)}
+.service .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.service .tags span{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:3px 8px;border-radius:2px}
+
+/* ---------- Trust ---------- */
+.trust{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.trust-item{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px}
+.trust-item .ic{
+  width:34px;height:34px;border-radius:3px;
+  background:rgba(255,107,26,.12);color:var(--accent);
+  display:grid;place-items:center;margin-bottom:14px;
+  font-family:'Oswald',sans-serif;font-weight:700;
+}
+.trust-item b{display:block;font-size:14px;margin-bottom:6px}
+.trust-item span{font-size:13px;color:var(--muted)}
+
+/* ---------- Steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:step}
+.step{
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 22px;
+  background:linear-gradient(180deg,var(--panel),var(--bg-2));
+}
+.step::before{
+  counter-increment:step;content:"0" counter(step);
+  font-family:'Oswald',sans-serif;font-size:34px;color:var(--accent);
+  display:block;margin-bottom:10px;letter-spacing:.04em;
+}
+.step h3{font-size:17px;margin-bottom:8px}
+.step p{font-size:14px;color:var(--muted)}
+
+/* ---------- Lead / Contacts ---------- */
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.lead-copy h2{font-size:clamp(28px,3.4vw,44px);margin-bottom:16px}
+.lead-copy p{color:var(--muted);margin-bottom:24px;max-width:440px}
+.contact-lines{display:grid;gap:14px}
+.contact-line{display:flex;gap:12px;align-items:flex-start;font-size:14px}
+.contact-line .k{color:var(--muted);min-width:130px;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.contact-line .v{color:var(--text)}
+.placeholder{color:var(--accent-2);font-size:13px;border-bottom:1px dashed rgba(255,176,0,.5)}
+
+/* ---------- Form ---------- */
+.lead-form{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:7px}
+.optional{color:var(--muted);font-weight:400}
+.field input,
+.field select,
+.field textarea{
+  width:100%;background:var(--bg);border:1px solid var(--line);border-radius:3px;
+  padding:12px 13px;color:var(--text);font-size:15px;font-family:inherit;
+  outline:none;transition:.15s;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:84px}
+.field .err{color:var(--err);font-size:12px;margin-top:5px;display:none}
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea{border-color:var(--err)}
+.field.invalid .err{display:block}
+.form-note{font-size:12px;color:var(--muted);margin-top:10px}
+.form-msg{display:none;margin-top:14px;padding:12px 14px;border-radius:3px;font-size:14px}
+.form-msg.ok{
+  display:block;
+  background:rgba(255,107,26,.12);
+  border:1px solid rgba(255,107,26,.45);
+  color:var(--accent);
+}
+
+/* ---------- Footer ---------- */
+footer{padding:50px 0 40px;background:var(--bg-2)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;margin-bottom:34px}
+.foot-grid h4{
+  font-family:'Oswald',sans-serif;font-size:14px;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:14px;color:var(--text);
+}
+.foot-grid p,.foot-grid a{font-size:14px;color:var(--muted);display:block;margin-bottom:8px}
+.foot-grid a:hover{color:var(--accent)}
+.logo-foot{margin-bottom:14px}
+.foot-bottom{
+  border-top:1px solid var(--line);padding-top:20px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;color:var(--muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-visual{order:-1;max-width:420px}
+  .trust{grid-template-columns:repeat(3,1fr)}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .lead-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .nav-links,.nav-cta .btn-ghost{display:none}
+  .burger{display:grid}
+  .hero{padding:44px 0 56px}
+  section{padding:56px 0}
+  .services{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-facts{gap:18px 24px}
+  .badge-float{left:0;bottom:12px;max-width:200px}
+  .contact-line{flex-direction:column;gap:2px}
+  .contact-line .k{min-width:0}
+}
+@media (max-width:400px){
+  .trust{grid-template-columns:1fr}
+  .hero-cta .btn{width:100%}
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+  html{scroll-behavior:auto}
+}
